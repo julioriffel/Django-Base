@@ -15,10 +15,14 @@ Including another URLconf
 """
 #  Copyright (c) 2021.
 #  Julio Cezar Riffel<julioriffel@gmail.com>
-
+import debug_toolbar
+from django.conf.urls import url
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+]
+urlpatterns += [
+    url(r'^__debug__/', include(debug_toolbar.urls)),
 ]
