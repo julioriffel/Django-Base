@@ -18,7 +18,6 @@ from pathlib import Path
 import dj_database_url
 from decouple import config, Csv
 
-# from firebase_admin import credentials
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -44,8 +43,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'django.contrib.humanize',
-    'django_filters',
-    # 'chartjs',
     'debug_toolbar',
 ]
 
@@ -66,8 +63,7 @@ ROOT_URLCONF = 'core.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates']
-        ,
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -139,20 +135,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'core/static'),
 )
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
-
-
-# SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/admin/'
-
-# Firebase etf
-# file = os.path.join(BASE_DIR, 'folder/serviceAccountKey.json')
-# cred = credentials.Certificate(file)
-# app_firebase = firebase_admin.initialize_app(cred, {
-#     'databaseURL': "https://app_firebase.firebaseio.com",
-# }, name='app_firebase')
 
 INTERNAL_IPS = [
     '127.0.0.1',
-    '10.36.33.120',
 ]

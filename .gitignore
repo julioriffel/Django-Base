@@ -22,7 +22,6 @@ venv
 package-lock.json
 
 staticfiles/*
-!staticfiles/.gitkeep 
 .vscode/symbols.json
 
 
@@ -32,8 +31,6 @@ files/*
 fixtures/*
 /staticfiles/*
 .env
-*/serviceAccountKey.json
-
 .env.prod
 .env.prod.db
-req_lib/
+htmlcov/*
