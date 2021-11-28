@@ -31,7 +31,10 @@ clean-pyc:
 	find . -name '*~' -exec rm -f {} +
 
 worker:
-	celery -A core worker -Q aaa -l info
+	celery -A core worker -l info
+
+beat:
+	celery -A core beat -l info
 
 check:
 	make style

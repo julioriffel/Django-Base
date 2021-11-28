@@ -24,7 +24,7 @@ package-lock.json
 staticfiles/*
 .vscode/symbols.json
 
-
+celerybeat-schedule
 
 
 files/*
@@ -34,3 +34,4 @@ fixtures/*
 .env.prod
 .env.prod.db
 htmlcov/*
+

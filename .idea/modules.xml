@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Agropacking_Web.iml" filepath="$PROJECT_DIR$/.idea/Agropacking_Web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Django-Base.iml" filepath="$PROJECT_DIR$/.idea/Django-Base.iml" />
     </modules>
   </component>
 </project>
