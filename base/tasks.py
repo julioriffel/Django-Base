@@ -14,3 +14,13 @@ def somar(x=0, y=0):
 @shared_task(rate_limit='2/m')
 def novo_log():
     LogMeu.objects.create(id=None)
+
+
+@shared_task()
+def fun_A():
+    return 'A'
+
+
+@shared_task()
+def fun_B():
+    return 'B'
