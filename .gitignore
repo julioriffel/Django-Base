@@ -34,4 +34,3 @@ fixtures/*
 .env.prod
 .env.prod.db
 htmlcov/*
-

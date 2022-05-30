@@ -1,6 +1,5 @@
 #  Copyright (c) 2021.
 #  Julio Cezar Riffel<julioriffel@gmail.com>
-
 from celery import shared_task
 
 from base.models import LogMeu

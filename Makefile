@@ -21,6 +21,9 @@ lint:
 	@echo "Running pycodestyle ..."
 	@echo $(SRC_FILES) | xargs pycodestyle --show-pep8 --show-source --max-line-length=119
 
+	@echo "Running blue ..."
+	@blue --diff --color --check --line-length=119 .
+
 install-dev:
 	@pip install -U pipenv
 	@pipenv install --dev --system -v
