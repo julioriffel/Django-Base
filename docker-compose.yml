@@ -9,7 +9,7 @@ services:
       - 5432:5432
     restart: unless-stopped
     env_file:
-      - ./.env.prod.db
+      - ./.env.prod
     networks:
       - backend
 
