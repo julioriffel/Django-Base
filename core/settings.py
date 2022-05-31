@@ -11,11 +11,11 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 #  Copyright (c) 2021.
 #  Julio Cezar Riffel<julioriffel@gmail.com>
-
 import os
 from pathlib import Path
 
-from decouple import config, Csv
+from decouple import config
+from decouple import Csv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -45,8 +45,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
     'django.contrib.humanize',
+    'django_celery_results',
+    'django_celery_beat',
+    'base',
     'debug_toolbar',
 ]
 
@@ -58,7 +60,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-
     'debug_toolbar.middleware.DebugToolbarMiddleware',  # DEBUG
 ]
 
@@ -86,7 +87,7 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-        'default': {
+    'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': DB_NAME,
         'USER': DB_USER,
@@ -139,10 +140,16 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # Extra places for collectstatic to find static files.
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'core/static'),
-)
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'core/static'),)
 
 INTERNAL_IPS = [
     '127.0.0.1',
 ]
+
+CELERY_BROKER_URL = (
+    f"pyamqp://{config('RABBIT_USER', default='guest')}:{config('RABBIT_PASS', default='guest')}@"
+    f"{config('RABBIT_HOST', default='localhost')}:{config('RABBIT_PORT', default='5672')}/"
+    f"{config('RABBIT_VIRTUAL_HOST', default='/')}"
+)
+
+CELERY_RESULT_BACKEND = 'django-db'

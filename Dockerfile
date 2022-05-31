@@ -46,4 +46,3 @@ EXPOSE 8000
 #COPY .env.prod .env
 #
 #RUN python manage.py collectstatic --no-input --clear
-

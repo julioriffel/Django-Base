@@ -24,7 +24,7 @@ package-lock.json
 staticfiles/*
 .vscode/symbols.json
 
-
+celerybeat-schedule
 
 
 files/*
